@@ -1,0 +1,33 @@
+header {
+    border: solid 1px;
+    border-color: black;
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.todo-form {
+    border: solid 1px;
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 3px;
+}
+
+.todo-form button {
+    margin-left: 3px;
+}
+
+.todo-list {
+    border: solid 1px;
+    padding: 1rem;
+}
+
+.todo-list li {
+    border: solid 1px;
+    padding: 0.5rem 0.5rem 0.5rem;
+    margin: 2px;
+
+}

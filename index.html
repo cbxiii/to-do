@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>TODO LIST</h1> 
+    </header>
+
+    <form id="todo-form" class="todo-form">
+        <label>
+            <span class="screen-reader-text">Create New TODO:</span>
+            <input type="text" name="todo" placeholder="Enter here...">
+        </label>
+        <button>Add</button>
+    </form>
+
+    <ol id="todo-list" class="todo-list">
+        <li id="something-unique">
+            <button aria-label="Complete">
+                x
+            </button>
+            eat food
+        </li>
+        <li id="something-unique">
+            <button aria-label="Complete">
+                x
+            </button>
+            go gym
+        </li>
+
+    </ol>
+</body>
+</html>
