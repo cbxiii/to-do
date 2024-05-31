@@ -1,6 +1,8 @@
 const form = document.querySelector("#todo-form");
 const list = document.querySelector("#todo-list");
 
+let todos = [];
+
 if (localStorage["data"] !== null && localStorage["data"] !== undefined) {
     todos = JSON.parse(localStorage["data"]);
 }
@@ -10,10 +12,10 @@ function buildUI() {
     todos.forEach((todo) => {
         HTML += `
             <li id="${todo.id}">
-                ${todo.title}
-                <button aria-label="Complete" class="button-complete>
+                <button aria-label="Complete" class="button-complete">
                     X
                 </button>
+                ${todo.title}
             </li>`;
     });
     list.innerHTML = HTML;
@@ -22,8 +24,6 @@ function buildUI() {
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     // add to-do to data and render UI
-    let todos = [];
-
 
     todos.push({
         title: event.target[0].value,
