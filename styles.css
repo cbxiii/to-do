@@ -1,23 +1,48 @@
+html {
+    --gray800: oklch(10% 0% 0);
+    --gray600: oklch(40% 0% 0);
+    --gray100: oklch(92% 0% 0);
+    --brand: oklch(85% 0.3 145);
+
+    background: var(--gray100);
+}
+
+html {
+    font-family: system-ui, sans-serif;
+}
+
 header {
-    border: solid 1px;
-    border-color: black;
+    background-color: var(--gray800);
+    color: white;
     display: flex;
     justify-content: center;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    h1 {
+        font-variation-settings: "wght" 900, "wdth" 700;
+    }
 }
 
 .todo-form {
-    border: solid 1px;
+    background: var(--gray600);
     display: flex;
     justify-content: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    margin-top: 3px;
 }
 
 .todo-form button {
+    background: aquamarine;
     margin-left: 3px;
+    width: 50px;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    font-size: 20px;
+}
+
+.todo-form input {
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.screen-reader-text {
+    color: white;
 }
 
 .todo-list {
