@@ -1,5 +1,6 @@
 const form = document.querySelector("#todo-form");
 const list = document.querySelector("#todo-list");
+const buttonAddTodo = document.querySelector("#button-add-todo");
 
 let todos = [];
 
@@ -23,19 +24,35 @@ function buildUI() {
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
+    
+    // don't allow empty todo value
+    if (!form[0].value) {
+        buttonAddTodo.classList.add("shake");
+        return;
+    }    
+
     // add to-do to data and render UI
+    addTodo(event);
+    form.reset();
+})
+
+buttonAddTodo.addEventListener("animationend", () => {
+    buttonAddTodo.classList.remove("shake", "added");
+});
+
+function addTodo() {
 
     todos.push({
-        title: event.target[0].value,
+        title: form[0].value,
         complete: false, // item isn't complete yet
         id: self.crypto.randomUUID() // gives each list item unique identifiers!
     });
 
     // update data
     localStorage["data"] = JSON.stringify(todos);
+    buttonAddTodo.classList.add("added");
     buildUI();
-    form.reset();
-})
+}
 
 document.documentElement.addEventListener("click", (event) => {
     if (event.target.classList.contains("button-complete")) {
