@@ -107,10 +107,10 @@ header {
 
 @keyframes completed {
     from {
-        margin-left: 0px; 
+        margin-left: 0rem; 
     }
     to {
-        margin-left: 800px;
+        margin-left: 150em;
     }
 }
 
