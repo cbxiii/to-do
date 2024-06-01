@@ -88,6 +88,7 @@ header {
 
 .todo-list li {
     background: white;
+    border-radius: 5px;
     box-shadow: 1px 1px 2px oklch(0% 0% 0 / 0.2);
     margin-block-end: 0.5rem;
     display: flex;
@@ -98,31 +99,18 @@ header {
         order: -1;
     }
 
-    .svg-check {
-        stroke: black;
-        position: absolute;
-        width: 2rem;
-        height: 2rem;
-        top: -0.5rem;
-        left: 0.1rem;
-        opacity: 0;
-    }
-    &.complete {
-        .svg-check {
-            opacity: 1;
-            stroke-dasharray: 1;
-            stroke-dashoffset: 1;
-            animation: do-check 1s infinite alternate;
-        }
+    &.completed {
+        transform-origin: center center;
+        animation: 1.5s completed;
     }
 }
 
-@keyframes do-check {
+@keyframes completed {
     from {
-        stroke-dashoffset: 1;
+        margin-left: 0px; 
     }
     to {
-        stroke-dashoffset: 0;
+        margin-left: 800px;
     }
 }
 

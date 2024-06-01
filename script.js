@@ -55,10 +55,17 @@ function addTodo() {
 }
 
 
+// remove todo
 document.documentElement.addEventListener("click", (event) => {
-    todos = todos.filter((todo) => todo.id !== event.target.parentElement.id);
-    localStorage["data"] = JSON.stringify(todos);
-    buildUI();
+    const listItem = event.target.parentElement;
+
+    listItem.classList.toggle("completed");
+    setTimeout(() => {
+        todos = todos.filter((todo) => todo.id !== event.target.parentElement.id);
+        localStorage["data"] = JSON.stringify(todos);
+        buildUI();
+    }, 1000);
 });
+
 
 buildUI();
