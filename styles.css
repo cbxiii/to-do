@@ -5,9 +5,6 @@ html {
     --brand: oklch(85% 0.3 145);
 
     background: var(--gray100);
-}
-
-html {
     font-family: system-ui, sans-serif;
 }
 
@@ -54,7 +51,7 @@ header {
     }
     &.added {
         transform-origin: center center;
-        animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        animation: added 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     }
 }
 
@@ -96,6 +93,37 @@ header {
     display: flex;
     align-items: center;
     gap: 0.1rem;
+
+    .button-complete {
+        order: -1;
+    }
+
+    .svg-check {
+        stroke: black;
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        top: -0.5rem;
+        left: 0.1rem;
+        opacity: 0;
+    }
+    &.complete {
+        .svg-check {
+            opacity: 1;
+            stroke-dasharray: 1;
+            stroke-dashoffset: 1;
+            animation: do-check 1s infinite alternate;
+        }
+    }
+}
+
+@keyframes do-check {
+    from {
+        stroke-dashoffset: 1;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
 }
 
 .button-complete {

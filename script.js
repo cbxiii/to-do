@@ -13,10 +13,10 @@ function buildUI() {
     todos.forEach((todo) => {
         HTML += `
             <li id="${todo.id}">
+                ${todo.title}
                 <button aria-label="Complete" class="button-complete">
                     X
                 </button>
-                ${todo.title}
             </li>`;
     });
     list.innerHTML = HTML;
@@ -54,12 +54,11 @@ function addTodo() {
     buildUI();
 }
 
+
 document.documentElement.addEventListener("click", (event) => {
-    if (event.target.classList.contains("button-complete")) {
-        todos = todos.filter((todo) => todo.id !== event.target.parentElement.id);
-        localStorage["data"] = JSON.stringify(todos);
-        buildUI();
-    }
+    todos = todos.filter((todo) => todo.id !== event.target.parentElement.id);
+    localStorage["data"] = JSON.stringify(todos);
+    buildUI();
 });
 
 buildUI();
