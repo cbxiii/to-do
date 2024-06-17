@@ -1,0 +1,8 @@
+<ol id="todo-list">
+    {% for t in todos %}
+    <li>
+        {{ t.todo }} 
+        <button id="button-complete">Complete</button>
+    </li>
+    {% endfor %}
+</ol>
