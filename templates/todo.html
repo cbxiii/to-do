@@ -1,8 +1,12 @@
-<ol id="todo-list">
+
+<ol id="todo-list" class="todo-list">
     {% for t in todos %}
-    <li>
+    <li id="todo-{{ t.id }}">
         {{ t.todo }} 
-        <button id="button-complete">Complete</button>
+        <button hx-delete="/todo/{{ t.id }}" 
+                hx-swap="outerHTML"
+                hx-target="#todo-list"
+                id="button-complete" class="button-complete">X</button>
     </li>
     {% endfor %}
 </ol>

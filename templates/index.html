@@ -1,13 +1,16 @@
 {% extends 'base.html' %} 
 {% block content %}
-    <header>TODO LIST</header>
-    <form id="todo-form" hx-post="/todo" hx-target="#todo-list" hx-swap="outerHTML">
+    <header>
+        <h1>TODO LIST</h1>
+    </header>
+    <form id="todo-form" class="todo-form" 
+    hx-post="/todo" hx-target="#todo-list" hx-swap="outerHTML">
         <label>
             <span class="screen-reader-text">Create todo: </span>
             <input type="text" name="todo" placeholder="Enter here...">
         </label>
-        <button type="submit" id="button-add-todo" class="button-add-todo">Add Todo</button>
+        <button type="submit" id="button-add-todo" class="button-add-todo">+</button>
     </form>
-    <hr>
     {% include 'todo.html' %}
+    <hr>
 {% endblock %}
