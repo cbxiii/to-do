@@ -48,25 +48,6 @@ header {
 
 }
 
-@keyframes shake {
-    50% {
-        rotate: -12deg;
-    }
-}
-@keyframes added {
-    50% {
-        rotate: 1turn;
-    }
-}
-::view-transition-old(.button-add-todo) {
-    rotate: 0deg;
-    transform-origin: bottom right;
-    animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-}
-::view-transition-new(.button-add-todo) {
-    transform-origin: center center;
-    animation: added 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-}
 
 .todo-form input {
     width: 100%;

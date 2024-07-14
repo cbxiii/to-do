@@ -1,6 +1,6 @@
 from dataclasses import dataclass
-
 from flask import Flask, render_template, request
+import time
 
 app = Flask(__name__)
 
@@ -21,13 +21,14 @@ class Todos:
     def newTodo(self, todo) -> Todo:
         self.id += 1
         new_todo = Todo(todo, self.id)
+        print(f"adding todo: {new_todo}")
         self.todos.append(new_todo)
         return new_todo
 
     def remove(self, id) -> bool:
         index = self.indexOf(id)
         if index != -1:
-            print(self.todos[index])
+            print(f"deleting todo: {self.todos[index]}")
             del self.todos[index]
             return True
         else:
@@ -60,9 +61,9 @@ def todo():
 
     return render_template("todo.html", todos=todos)
 
-
 @app.route("/todo/<int:id>", methods=["DELETE"])
 def complete(id):
+    time.sleep(3) # see if it's really doin something 
     if not todo_list.remove(id):
         return "todo not found...", 404
     todos = todo_list.get_todos()
